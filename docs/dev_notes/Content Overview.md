@@ -7,6 +7,6 @@ This is the landing page for my personal business, Believe25, which is my jewelr
 3. More Jewelry and Accessories - In addition to phone chains, I also sell necklaces, bracelets, anklets, laniards, airpod chains, and car mirror accessories.
 
 4. My Personal Style and Branding - description
-    - Colors: 
+    - Colors: white, pink, purple
     - Imagery: leopards, tigers, cheetahs, lions, jewelry, necklaces, rings, earrings, bracelets, crowns
     - Vibe: elegant, innovative, stylish, friendly, high quality
