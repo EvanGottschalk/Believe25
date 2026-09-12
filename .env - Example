@@ -1,0 +1,87 @@
+# Believe25 — Environment Variables
+#
+# Copy the contents of this file into a new file named `.env` in the project
+# root, then fill in the values. `.env` is gitignored and must never be committed.
+#
+# Variables prefixed NEXT_PUBLIC_ are exposed to the browser. Everything else
+# stays server-side — keep API keys unprefixed.
+#
+# See `docs/dev_notes/Tasks for Humans.md` for how to obtain each value.
+
+# ----------------------------------------------------------------------------
+# Site
+# ----------------------------------------------------------------------------
+
+# Production origin, no trailing slash. Used for canonical URLs, sitemap.xml,
+# robots.txt, and Open Graph tags.
+NEXT_PUBLIC_SITE_URL=https://believe25.com
+
+
+# ----------------------------------------------------------------------------
+# Shopify  (catalog, cart, checkout)
+# ----------------------------------------------------------------------------
+#
+# Leave SHOPIFY_STORE_DOMAIN blank during early development — the site falls
+# back to a built-in mock catalog ("fixture mode") so commerce components can
+# be built and reviewed before the real store exists.
+#
+# To get these: Shopify admin -> Settings -> Apps and sales channels ->
+# Develop apps -> Create an app -> Configure Storefront API scopes
+# (unauthenticated_read_product_listings, unauthenticated_read_product_inventory,
+# unauthenticated_write_checkouts, unauthenticated_read_checkouts)
+# -> Install app -> reveal the Storefront API access token.
+
+# e.g. believe25.myshopify.com  (no https://, no trailing slash)
+SHOPIFY_STORE_DOMAIN=
+
+# Storefront API access token. Read-mostly and public-safe by design, but it is
+# kept server-side here and never sent to the browser.
+SHOPIFY_STOREFRONT_ACCESS_TOKEN=
+
+# Storefront API version, YYYY-MM. Pin it; do not track "unstable".
+SHOPIFY_API_VERSION=2026-07
+
+# Shared secret for the /api/revalidate webhook that purges cached product data
+# when a product changes in the Shopify admin. Generate any long random string
+# and paste the same value into the Shopify webhook configuration.
+SHOPIFY_REVALIDATION_SECRET=
+
+
+# ----------------------------------------------------------------------------
+# Newsletter signup  (Join the List break section + footer)
+# ----------------------------------------------------------------------------
+
+# One of: klaviyo | mailchimp | convertkit
+NEWSLETTER_PROVIDER=klaviyo
+
+# Private API key for the provider above. Server-side only.
+NEWSLETTER_API_KEY=
+
+# The list / audience / form ID that signups are added to.
+NEWSLETTER_LIST_ID=
+
+
+# ----------------------------------------------------------------------------
+# Custom design request form  (Made For You section -> /custom)
+# ----------------------------------------------------------------------------
+#
+# Requests are free and take no payment. Once a design is agreed, the piece is
+# invoiced through a Shopify draft order — no extra credentials needed for that.
+
+# Endpoint that receives completed style questionnaires.
+# e.g. a Formspree URL: https://formspree.io/f/xxxxxxxx
+CUSTOM_FORM_ENDPOINT=
+
+# Optional: address that receives a notification for each new request.
+CUSTOM_FORM_NOTIFY_EMAIL=
+
+
+# ----------------------------------------------------------------------------
+# Analytics  (optional — set ONE of these, or neither)
+# ----------------------------------------------------------------------------
+
+# Google Analytics 4 measurement ID, e.g. G-XXXXXXXXXX
+NEXT_PUBLIC_GA_MEASUREMENT_ID=
+
+# Plausible domain, e.g. believe25.com — privacy-first, no cookie banner needed.
+NEXT_PUBLIC_PLAUSIBLE_DOMAIN=
